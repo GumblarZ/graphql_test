@@ -1,0 +1,6 @@
+//No graphql toda request e POST
+//Toda request bate no mesmo endpoint (/graphql)
+
+//Query ela obtem todas as informacoes GET
+//mutation ela que manipula os dados POST/PUT/PATCH/DELETE
+//Scarlar types o graphql e todo tipado alguns tipos de types String,Int,Boolean, Float e ID
