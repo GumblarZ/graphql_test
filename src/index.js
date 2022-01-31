@@ -14,6 +14,10 @@ const typeDefs = gql`
         content: String!
         author: User! 
     }
+    type Mutation {
+        createUser(name: String!, email: String!): User!
+    }
+
     type Query {
         hello: String
         users: [User]!
@@ -34,6 +38,18 @@ const resolvers = {
         users: ()=> users,
         getUserByEmail: (_, args) =>{
             return users.find((user) => user.email === args.email);
+        }
+    },
+    Mutation: {
+        createUser: (_, args) => {
+            const newUser ={
+                _id: String(Math.random()),
+                name: args.name,
+                email: args.email,
+                active: true
+            };
+            users.push(newUser);
+            return newUser;
         }
     }
 };
